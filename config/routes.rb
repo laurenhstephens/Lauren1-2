@@ -6,8 +6,9 @@ Lauren12::Application.routes.draw do
     resources :userSessions
   end
   match "sites/:id/getcode" => "sites#getcode"
-  match "/restricted/visits" => "sites#visits_preflight", :constraints => { :method => "OPTIONS" }
+  match "/restricted/visits" => "sites#visits_preflight", :via => [:options] 
   match "/restricted/visits" => "sites#visits"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
