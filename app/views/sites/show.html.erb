@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<p><b> Web analytics for <%= @site.name %></b><p>
+  <!-- <b>Key:</b>
+  <%= @site.key %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @site.url %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @site.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @site.desc %>
+</p>--!>
+<p>
+  <b>Total Page Visits:</b>
+  <%= @site.siteVisits() %>
+</p>
+<p>
+  <b>Average Duration:</b>
+  <%= @site.averageSite() %>
+</p>
+<p>
+<table>
+  <tr>
+    <th>Page</th>
+    <th>Total Visits</th>
+    <th>Average Duration</th>
+    
+  </tr>
+<% @site.pages.each do |page|%>
+ <tr>
+    <td><%= page.pageName %></td>
+    <td><%= @site.pageVisits(page.pagename) %></td>
+    <td><%= @site.averagePage(page.pagename) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

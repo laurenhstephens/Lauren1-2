@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  endtime: 2013-02-24
+  duration: 1
+  pagename: MyString
+
+two:
+  endtime: 2013-02-24
+  duration: 1
+  pagename: MyString

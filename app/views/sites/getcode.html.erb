@@ -1,0 +1,41 @@
+<h1>Success! You created a new site</h1>
+Just copy and paste this javascript onto each page of your site that you want to track.
+<textarea rows="10" cols="150">
+<script>
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 1) {
+    console.log('The call to open(...) succeeded.');
+  }
+  if (xhr.readyState == 2) {
+    console.log('The call to send(...) succeeded.  Waiting for response...');
+  }
+  if (xhr.readyState == 3) {
+    console.log('The response is coming in!');
+  }
+  if (xhr.readyState == 4) {
+    console.log('We now have the complete response: ' + xhr.response);
+  }
+}
+var startTime;
+window.onload = function (){
+startTime = new Date().getTime() / 1000;  
+  
+
+}
+
+window.onbeforeunload = function (){
+ var yourkey = '<%= @site.key%>';
+var pagename = window.location.pathname;
+
+var endTime = new Date().getTime() / 1000; 
+duration = endTime-endTime;
+var params = "page="+pagename+"&id="+yourkey+"&duration="+duration;
+xhr.open('POST', 'http://evening-wildwood-9809.herokuapp.com/restricted/visits', false);
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.send(params);
+  }
+</script>
+</textarea>
+
+<%= link_to 'Back', sites_path %>
