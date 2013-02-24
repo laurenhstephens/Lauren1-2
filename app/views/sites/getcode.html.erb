@@ -31,7 +31,7 @@ var pagename = window.location.pathname;
 var endTime = new Date().getTime() / 1000; 
 duration = endTime-endTime;
 var params = "page="+pagename+"&id="+yourkey+"&duration="+duration;
-xhr.open('POST', 'http://evening-wildwood-9809.herokuapp.com/restricted/visits', false);
+xhr.open('POST', 'http://murmuring-sea-3746.herokuapp.com/restricted/visits', false);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send(params);
   }
