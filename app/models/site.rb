@@ -3,7 +3,7 @@ class Site < ActiveRecord::Base
   has_many :userSessions
   validates_presence_of  :key, :name, :url
   validates :key, :uniqueness => true
-  def create_user_session(endGuess, pagename, duration)
+  def create_user_session(endtime, pagename, duration)
     user_session = UserSession.new()
     user_session.endtime = endtime
     user_session.duration = duration
