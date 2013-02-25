@@ -20,22 +20,23 @@ xhr.onreadystatechange = function() {
 var startTime;
 window.onload = function (){
 startTime = new Date().getTime() / 1000;  
-  
+
 
 }
 
 window.onbeforeunload = function (){
- var yourkey = '<%= @site.key%>';
+var yourkey = '<%= @site.key%>';
 var pagename = window.location.pathname;
 
 var endTime = new Date().getTime() / 1000; 
-duration = endTime-endTime;
+duration = endTime-startTime;
 var params = "page="+pagename+"&id="+yourkey+"&duration="+duration;
 xhr.open('POST', 'http://murmuring-sea-3746.herokuapp.com/restricted/visits', false);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send(params);
   }
 </script>
-</textarea>
 
+</textarea>
+<br>
 <%= link_to 'Back', sites_path %>
