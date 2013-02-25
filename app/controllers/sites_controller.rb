@@ -26,7 +26,7 @@ class SitesController < ApplicationController
   def visits
     set_cors_headers
     @site = Site.where("key =?", params[:id]).first
-    respond_to do |format|
+ 
       if @site.nil?
         format.html {  redirect_to sites_url notice: 'Failed to identify site, please check your key.' }
         format.json { render json: @site.errors, status: "Could not find site" }
@@ -36,7 +36,7 @@ class SitesController < ApplicationController
         format.html { redirect_to @site, notice: 'Visit was successfully logged.' }
         format.json { head :no_content }
       end
-    end
+  
   end
 
   # GET /sites/1
