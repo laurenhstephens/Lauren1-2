@@ -25,7 +25,6 @@ class SitesController < ApplicationController
   # POST /sites/id/visits.json
   def visits
     set_cors_headers
-    render :text => "OK here is your restricted resource!"
     @site = Site.where("key =?", params[:id]).first
     respond_to do |format|
       if @site.nil?
