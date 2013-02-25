@@ -38,7 +38,7 @@
   </tr>
 <% @site.pages.each do |page|%>
  <tr>
-    <td><%= page.pageName %></td>
+    <td><%= page.pagename %></td>
     <td><%= @site.pageVisits(page.pagename) %></td>
     <td><%= @site.averagePage(page.pagename) %></td>
   </tr>
